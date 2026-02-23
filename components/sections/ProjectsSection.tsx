@@ -120,6 +120,7 @@ export function ProjectsSection() {
                   <ImageWithFallback
                     src={`https://source.unsplash.com/800x600/?${project.image}`}
                     alt={project.title}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

@@ -87,6 +87,7 @@ export function HeroSection() {
           <ImageWithFallback
             src={imgAdobeExpressFile66}
             alt=""
+            sizes="(min-width: 768px) 280px, 220px"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -107,6 +108,7 @@ export function HeroSection() {
           <ImageWithFallback
             src={imgAdobeExpressFile66}
             alt=""
+            sizes="(min-width: 768px) 230px, 200px"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -121,6 +123,7 @@ export function HeroSection() {
         <ImageWithFallback
           src={imgCharacterWithRose}
           alt=""
+          sizes="(min-width: 768px) 360px, 220px"
           className="h-full w-full object-contain"
         />
       </motion.div>
@@ -328,10 +331,11 @@ export function HeroSection() {
               </p>
 
               <div className="mt-4 flex items-center gap-3">
-                <div className="h-[42px] w-[42px] overflow-hidden rounded-full bg-[#0ea5e9]">
+                <div className="relative h-[42px] w-[42px] overflow-hidden rounded-full bg-[#0ea5e9]">
                   <ImageWithFallback
                     src={imgUnsplashHaNi1RsZ6Nc}
                     alt="Client"
+                    sizes="42px"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -352,11 +356,14 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="absolute -bottom-6 right-[-18px] h-[560px] w-[420px] xl:-bottom-8 xl:right-[-28px] xl:h-[600px] xl:w-[550px]"
+              className="absolute -bottom-6 right-[-18px] h-[560px] w-[420px] xl:-bottom-8 xl:right-[-28px] xl:h-[580px] xl:w-[520px]"
             >
               <ImageWithFallback
                 src={imgCharacterWithRose}
                 alt="3D Character"
+                priority
+                fetchPriority="high"
+                sizes="(min-width: 1280px) 550px, 420px"
                 className="h-full w-full object-cover"
               />
             </motion.div>
