@@ -6,22 +6,24 @@ import { Badge } from "../Badge";
 import { SectionHeader } from "../SectionHeader";
 
 const skills = [
-  { name: "React", level: 95 },
-  { name: "Next.js", level: 90 },
+  { name: "React.js", level: 95 },
+  { name: "Next.js", level: 92 },
   { name: "TypeScript", level: 88 },
-  { name: "JavaScript", level: 92 },
-  { name: "Tailwind CSS", level: 94 },
+  { name: "JavaScript (ES6+)", level: 94 },
+  { name: "Tailwind CSS", level: 95 },
 ];
 
 const techBadges = [
-  "React",
+  "React.js",
   "Next.js",
   "TypeScript",
   "JavaScript",
+  "HTML5",
   "Tailwind CSS",
-  "Redux",
-  "GraphQL",
-  "REST API",
+  "Bootstrap 5",
+  "REST APIs",
+  "Axios",
+  "Formik/Yup",
   "Git",
   "Responsive Design",
 ];
@@ -45,15 +47,16 @@ export function AboutSection() {
           >
             <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
               <p className="mb-6 text-lg leading-relaxed text-gray-300">
-                I&apos;m a frontend engineer specializing in building scalable,
-                high-performance web applications. With expertise in React,
-                Next.js, and TypeScript, I create seamless user experiences
-                that combine beautiful design with robust functionality.
+                Front-End Developer with hands-on experience in building modern,
+                responsive web applications using React and Next.js. Strong
+                understanding of component-based architecture, state management,
+                and API integration.
               </p>
               <p className="mb-6 text-lg leading-relaxed text-gray-300">
-                My focus is on modern UI systems, API integration, interactive
-                dashboards, and delivering pixel-perfect implementations that
-                perform at scale.
+                Passionate about clean code, performance optimization, and
+                delivering user-focused interfaces. Currently seeking an
+                opportunity to grow within a professional team and contribute to
+                scalable, real-world products.
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-4">
@@ -115,7 +118,9 @@ export function AboutSection() {
             </div>
 
             <div className="mt-8 border-t border-white/10 pt-8">
-              <h4 className="mb-4 text-xl font-bold text-white">Technologies</h4>
+              <h4 className="mb-4 text-xl font-bold text-white">
+                Technologies
+              </h4>
               <div className="flex flex-wrap gap-2">
                 {techBadges.map((tech, index) => (
                   <motion.div
@@ -142,6 +147,74 @@ export function AboutSection() {
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16 grid gap-8 md:grid-cols-2"
+        >
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
+            <h3 className="mb-6 text-2xl font-bold text-white">Education</h3>
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-lg font-semibold text-white">
+                  Bachelor's Degree in Law
+                </h4>
+                <p className="text-sm text-gray-400">
+                  Ain Shams University, Cairo • 06/2023
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">
+                  Front-End Development Course
+                </h4>
+                <p className="text-sm text-gray-400">
+                  Route Academy • 2024-2025
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">
+                  React & TypeScript Specialization
+                </h4>
+                <p className="text-sm text-gray-400">
+                  Muhammad Naga (Codeawy) & Jonas Schmedtmann
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">
+                  UI Design & Figma
+                </h4>
+                <p className="text-sm text-gray-400">Ehab Fayez</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
+            <h3 className="mb-6 text-2xl font-bold text-white">Languages</h3>
+            <div className="space-y-4">
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-white font-semibold">Arabic</span>
+                  <span className="text-[#0ea5e9]">Native</span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-full bg-gradient-to-r from-[#0ea5e9] to-[#a855f7]" />
+                </div>
+              </div>
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-white font-semibold">English</span>
+                  <span className="text-[#0ea5e9]">Advanced</span>
+                </div>
+                <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-full bg-gradient-to-r from-[#0ea5e9] to-[#a855f7]" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

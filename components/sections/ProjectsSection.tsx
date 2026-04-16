@@ -10,58 +10,71 @@ import { ImageWithFallback } from "../figma/ImageWithFallback";
 
 const projects = [
   {
-    id: 1,
-    title: "E-Commerce Dashboard",
+    id: 0,
+    title: "4S ERP Platform",
     description:
-      "Real-time analytics dashboard with interactive charts and inventory management",
-    tags: ["React", "TypeScript", "Dashboard"],
-    category: ["React", "Dashboards"],
-    image: "ecommerce dashboard analytics",
+      "Enterprise ERP solution with real-time dashboards, inventory management, and integrated modules for finance, HR, and sales operations",
+    tags: ["Next.js", "TypeScript", "ERP", "Dashboard"],
+    category: ["Featured"],
+    image: "erp enterprise management system",
+    liveUrl: "https://4-s-sigma.vercel.app/",
+  },
+  {
+    id: 1,
+    title: "Medicurb",
+    description:
+      "Medical transportation platform similar to Uber for healthcare services, connecting patients with hospitals for safe and timely transfers. Featuring authentication, secure data handling, and Google Maps API for location-based services.",
+    tags: ["React.js", "Axios", "Formik", "Google Maps API"],
+    category: ["React", "APIs"],
+    image: "medical transportation healthcare",
   },
   {
     id: 2,
-    title: "Social Media Platform",
+    title: "Ecommerce",
     description:
-      "Modern social platform with real-time messaging and content sharing",
-    tags: ["Next.js", "TypeScript", "Real-time"],
-    category: ["Next", "UI"],
-    image: "social media app interface",
+      "Full-featured e-commerce web application with seamless shopping experience. Includes product listing, cart system, and order management with optimized data fetching.",
+    tags: ["React.js", "React Query", "Context API", "Bootstrap"],
+    category: ["React", "Full-Stack"],
+    image: "ecommerce shopping platform",
   },
   {
     id: 3,
-    title: "Task Management App",
-    description: "Kanban-style task manager with drag-and-drop functionality",
-    tags: ["React", "Redux", "UI"],
-    category: ["React", "UI"],
-    image: "task management kanban board",
+    title: "Admin News",
+    description:
+      "Admin dashboard for managing news articles with create, edit, and delete functionality. Streamlined content management workflow for efficient article handling.",
+    tags: ["React.js", "Firebase", "Bootstrap", "Admin Panel"],
+    category: ["React", "Dashboard"],
+    image: "admin news management system",
   },
   {
     id: 4,
-    title: "Financial Analytics",
-    description: "Advanced financial dashboard with data visualization and reports",
-    tags: ["Next.js", "Charts", "Dashboard"],
-    category: ["Next", "Dashboards"],
-    image: "financial analytics dashboard",
+    title: "Yummy",
+    description:
+      "Recipe platform where users can explore various recipes, sort by category, and access step-by-step cooking instructions with accompanying video tutorials.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    category: ["Frontend", "UI"],
+    image: "recipe cooking platform",
   },
   {
     id: 5,
-    title: "Healthcare Portal",
-    description: "Patient management system with appointment scheduling",
-    tags: ["React", "TypeScript", "Dashboard"],
-    category: ["React", "Dashboards"],
-    image: "healthcare medical portal",
-  },
-  {
-    id: 6,
-    title: "Portfolio CMS",
-    description: "Headless CMS for managing portfolio content with live preview",
-    tags: ["Next.js", "API", "UI"],
-    category: ["Next", "UI"],
-    image: "content management system cms",
+    title: "Weather",
+    description:
+      "Weather forecasting web app showing current conditions and multi-day forecasts. Demonstrates API integration and responsive UI design with real-time data.",
+    tags: ["HTML5", "CSS3", "JavaScript", "API"],
+    category: ["Frontend", "APIs"],
+    image: "weather forecast app",
   },
 ];
 
-const filters = ["All", "React", "Next", "Dashboards", "UI"];
+const filters = [
+  "All",
+  "Featured",
+  "React",
+  "Frontend",
+  "Dashboard",
+  "APIs",
+  "Full-Stack",
+];
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -135,7 +148,10 @@ export function ProjectsSection() {
 
                 <div className="mb-4 flex flex-wrap gap-2">
                   {project.tags.map((tag, idx) => (
-                    <Badge key={tag} variant={idx % 2 === 0 ? "accent" : "purple"}>
+                    <Badge
+                      key={tag}
+                      variant={idx % 2 === 0 ? "accent" : "purple"}
+                    >
                       {tag}
                     </Badge>
                   ))}
@@ -145,7 +161,9 @@ export function ProjectsSection() {
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href="#"
+                    href={project.liveUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#0ea5e9] px-4 py-2 text-white transition-colors hover:bg-[#0284c7]"
                   >
                     <ExternalLink size={16} />

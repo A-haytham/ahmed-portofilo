@@ -9,30 +9,34 @@ const skillCategories = [
     title: "Frontend",
     icon: Code,
     skills: [
-      { name: "React", level: 95 },
-      { name: "Next.js", level: 90 },
+      { name: "React.js", level: 95 },
+      { name: "Next.js", level: 92 },
       { name: "TypeScript", level: 88 },
-      { name: "JavaScript", level: 92 },
+      { name: "JavaScript (ES6+)", level: 94 },
+      { name: "HTML5", level: 94 },
+      { name: "DOM", level: 90 },
     ],
   },
   {
-    title: "UI & Styling",
+    title: "Styling & UI",
     icon: Palette,
     skills: [
-      { name: "Tailwind CSS", level: 94 },
-      { name: "CSS3", level: 90 },
-      { name: "Responsive Design", level: 92 },
-      { name: "Animations", level: 85 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "CSS3", level: 92 },
+      { name: "Bootstrap 5", level: 90 },
+      { name: "Sass", level: 88 },
+      { name: "Responsive Design", level: 95 },
     ],
   },
   {
-    title: "Tools",
+    title: "Tools & APIs",
     icon: Wrench,
     skills: [
-      { name: "Git", level: 88 },
-      { name: "Webpack", level: 80 },
-      { name: "Redux", level: 85 },
-      { name: "REST APIs", level: 90 },
+      { name: "REST APIs", level: 92 },
+      { name: "Axios", level: 90 },
+      { name: "Figma (UI Design)", level: 85 },
+      { name: "Git", level: 90 },
+      { name: "Formik/Yup", level: 88 },
     ],
   },
 ];
@@ -66,7 +70,10 @@ function CircularProgress({
           strokeWidth="8"
           fill="none"
           strokeLinecap="round"
-          initial={{ strokeDasharray: circumference, strokeDashoffset: circumference }}
+          initial={{
+            strokeDasharray: circumference,
+            strokeDashoffset: circumference,
+          }}
           whileInView={{ strokeDashoffset: offset }}
           viewport={{ once: true }}
           transition={{ duration: 1.5, delay, ease: "easeOut" }}

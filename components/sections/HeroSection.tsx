@@ -118,7 +118,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 1 }}
-        className="pointer-events-none absolute bottom-0 right-0 z-20 h-[320px] w-[220px] opacity-70 md:right-4 md:h-[520px] md:w-[360px] md:opacity-90 lg:hidden"
+        className="pointer-events-none absolute bottom-0 right-0 z-20 h-[320px] w-[220px] opacity-70 hidden lg:block    lg:hidden"
       >
         <ImageWithFallback
           src={imgCharacterWithRose}
@@ -198,14 +198,16 @@ export function HeroSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1380px] flex-col px-4 py-4 md:px-7 md:py-6 lg:px-10">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1380px] flex-col px-2 py-2 lg:px-10">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 flex items-center justify-between md:mb-10 lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-8"
+          className="mb-6 flex items-center justify-between  lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-8"
         >
-          <div className="text-2xl font-semibold text-white md:text-3xl">ahmed.</div>
+          <div className="text-2xl font-semibold text-white md:text-3xl">
+            ahmed.
+          </div>
 
           <div className="hidden justify-center lg:flex">
             <div className="flex w-full max-w-[360px] items-center justify-center gap-7 rounded-full border border-white/30 px-8 py-2.5 backdrop-blur-sm">
@@ -236,19 +238,21 @@ export function HeroSection() {
             </div>
           </div>
 
-          <motion.button
+          <motion.a
+            href="/cv/Ahmed-Haytham-Ahmed-Front-End-Developer.pdf"
+            download
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="hidden items-center gap-2 rounded-full border-2 border-[#0ea5e9] px-4 py-2 text-sm text-white transition-all hover:bg-[#0ea5e9]/10 lg:flex"
           >
             <Download size={18} />
             <span className="text-base font-normal">Download Resume</span>
-          </motion.button>
+          </motion.a>
 
           <button className="text-base text-white lg:hidden">Menu</button>
         </motion.nav>
 
-        <div className="grid flex-1 items-center gap-8 pb-8 pt-2 lg:grid-cols-[1.05fr_0.95fr] lg:gap-2 ">
+        <div className="grid flex-1 items-center  lg:grid-cols-[1.05fr_0.95fr] lg:gap-2 ">
           <div className="space-y-4 md:space-y-5 lg:max-w-[620px] lg:pt-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -265,7 +269,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="bg-gradient-to-r from-[#0ea5e9] to-[#a855f7] bg-clip-text text-4xl font-semibold text-transparent md:text-6xl xl:text-7xl"
+              className="bg-gradient-to-r from-[#0ea5e9] to-[#a855f7] bg-clip-text text-3xl font-semibold text-transparent md:text-5xl lg:text-6xl"
             >
               Front-End
               <br />
@@ -278,8 +282,9 @@ export function HeroSection() {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="max-w-md text-sm font-light text-white md:text-base"
             >
-              Building scalable UI systems and performance-driven applications
-              with modern web technologies.
+              Hands-on experience building modern, responsive web applications
+              using React and Next.js. Passionate about clean code, performance
+              optimization, and delivering user-focused interfaces.
             </motion.p>
 
             <motion.div
@@ -376,7 +381,11 @@ export function HeroSection() {
             >
               <motion.div
                 animate={{ rotate: [8, 12, 8], y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 <SkillIconsCss />
               </motion.div>

@@ -45,7 +45,9 @@ export function ContactSection() {
             className="space-y-6"
           >
             <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
-              <h3 className="mb-6 text-2xl font-bold text-white">Let&apos;s Connect</h3>
+              <h3 className="mb-6 text-2xl font-bold text-white">
+                Let&apos;s Connect
+              </h3>
               <p className="mb-8 text-gray-300">
                 I&apos;m always interested in hearing about new projects and
                 opportunities. Whether you have a question or just want to say
@@ -60,7 +62,7 @@ export function ContactSection() {
                   <div className="rounded-lg bg-[#0ea5e9]/20 p-2">
                     <Mail size={20} />
                   </div>
-                  <span>ahmed.haytham@email.com</span>
+                  <span>ahmedhaytham25320@gmail.com</span>
                 </motion.div>
 
                 <motion.div
@@ -82,7 +84,7 @@ export function ContactSection() {
                 {
                   icon: Mail,
                   label: "Email",
-                  href: "mailto:ahmed.haytham@email.com",
+                  href: "mailto:ahmedhaytham25320@gmail.com",
                 },
               ].map((social, index) => {
                 const Icon = social.icon;

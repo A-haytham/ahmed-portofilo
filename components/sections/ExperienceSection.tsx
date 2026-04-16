@@ -7,30 +7,43 @@ import { SectionHeader } from "../SectionHeader";
 const experiences = [
   {
     id: 1,
-    title: "Senior Frontend Developer",
-    company: "Tech Solutions Inc.",
-    period: "2024 - Present",
+    title: "Front-End Developer",
+    company: "4S Software",
+    period: "12/2024 - Present",
     description:
-      "Leading frontend development for enterprise-scale applications. Built reusable component library and improved performance by 40%.",
-    skills: ["React", "Next.js", "TypeScript", "Team Leadership"],
+      "Built and maintained 30+ responsive UI pages/components using React.js/Next.js with reusable component architecture. Integrated REST APIs using Axios with proper loading/error handling. Revamped legacy ERP and CRM interfaces, modernizing UI/UX and improving usability across core modules.",
+    skills: [
+      "React.js",
+      "Next.js",
+      "REST APIs",
+      "Axios",
+      "Component Architecture",
+    ],
   },
   {
     id: 2,
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    period: "2022 - 2024",
+    title: "Front-End Development Course",
+    company: "Route Academy",
+    period: "09/2024 - 02/2025",
     description:
-      "Developed responsive web applications and interactive dashboards for clients across various industries.",
-    skills: ["React", "JavaScript", "Tailwind CSS", "API Integration"],
+      "Completed hands-on program covering React, Next.js, TypeScript, APIs, and UI development. Implemented form validation for 5+ forms using Formik/Yup. Practiced clean code patterns and responsive UI with Bootstrap/Tailwind.",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Formik/Yup",
+      "Bootstrap",
+      "Tailwind",
+    ],
   },
   {
     id: 3,
-    title: "Junior Frontend Developer",
-    company: "Startup Lab",
-    period: "2021 - 2022",
+    title: "Freelance Front-End Developer",
+    company: "Self-Employed",
+    period: "Ongoing",
     description:
-      "Collaborated on building MVPs and prototypes. Learned modern web development practices and agile methodologies.",
-    skills: ["HTML", "CSS", "JavaScript", "React"],
+      "Delivered 5+ client-facing websites and dashboards with responsive design and clean UI implementation. Built reusable components and improved UX through better component structure. Communicated requirements with clients and delivered iterations based on feedback.",
+    skills: ["React", "Next.js", "Responsive Design", "Client Communication"],
   },
 ];
 
@@ -67,7 +80,9 @@ export function ExperienceSection() {
                 className="absolute left-0 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-[#0a0a14] bg-gradient-to-br from-[#0ea5e9] to-[#a855f7] md:left-1/2"
               />
 
-              <div className={`ml-8 md:ml-0 ${index % 2 === 0 ? "md:mr-12" : "md:ml-12"}`}>
+              <div
+                className={`ml-8 md:ml-0 ${index % 2 === 0 ? "md:mr-12" : "md:ml-12"}`}
+              >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="rounded-xl border border-white/10 bg-[rgba(17,17,31,0.6)] p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-[#0ea5e9]/50"
@@ -82,7 +97,9 @@ export function ExperienceSection() {
                       <Briefcase size={20} className="text-[#0ea5e9]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                      <h3 className="text-xl font-bold text-white">
+                        {exp.title}
+                      </h3>
                       <p className="text-gray-400">{exp.company}</p>
                     </div>
                   </div>
