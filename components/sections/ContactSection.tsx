@@ -1,8 +1,17 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent, useEffect } from "react";
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Send,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
+import emailjs from "emailjs-com";
 import { Button } from "../Button";
 import { SectionHeader } from "../SectionHeader";
 
@@ -13,10 +22,92 @@ export function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key from environment
+    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+    }
+  }, []);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    alert("Thanks for reaching out! This is a demo form.");
-    setFormData({ name: "", email: "", message: "" });
+    setIsLoading(true);
+    setStatus("idle");
+
+    // Check if EmailJS is configured
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+
+    if (!publicKey || publicKey === "your_public_key_here") {
+      setStatus("error");
+      setStatusMessage(
+        "⚙️ Email service not configured. Please contact: ahmedhaytham25320@gmail.com",
+      );
+      setIsLoading(false);
+      console.warn(
+        "EmailJS not configured. Set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in .env.local",
+      );
+      return;
+    }
+
+    if (!serviceId || serviceId === "your_service_id_here") {
+      setStatus("error");
+      setStatusMessage(
+        "⚙️ Email service not configured. Please contact: ahmedhaytham25320@gmail.com",
+      );
+      setIsLoading(false);
+      console.warn(
+        "EmailJS not configured. Set NEXT_PUBLIC_EMAILJS_SERVICE_ID in .env.local",
+      );
+      return;
+    }
+
+    if (!templateId || templateId === "your_template_id_here") {
+      setStatus("error");
+      setStatusMessage(
+        "⚙️ Email service not configured. Please contact: ahmedhaytham25320@gmail.com",
+      );
+      setIsLoading(false);
+      console.warn(
+        "EmailJS not configured. Set NEXT_PUBLIC_EMAILJS_TEMPLATE_ID in .env.local",
+      );
+      return;
+    }
+
+    try {
+      const result = await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+      });
+
+      console.log("Email sent successfully:", result);
+      setStatus("success");
+      setStatusMessage(
+        "✅ Thanks for your message! I'll get back to you soon.",
+      );
+      setFormData({ name: "", email: "", message: "" });
+
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      setStatus("error");
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred";
+      console.error("EmailJS error:", errorMessage, error);
+      setStatusMessage(
+        "❌ Failed to send. Please email me: ahmedhaytham25320@gmail.com",
+      );
+
+      setTimeout(() => setStatus("idle"), 5000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (
@@ -79,8 +170,16 @@ export function ContactSection() {
 
             <div className="flex gap-4">
               {[
-                { icon: Github, label: "GitHub", href: "#" },
-                { icon: Linkedin, label: "LinkedIn", href: "#" },
+                {
+                  icon: Github,
+                  label: "GitHub",
+                  href: "https://github.com/A-haytham",
+                },
+                {
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                  href: "https://linkedin.com/in/ahmedhaytham",
+                },
                 {
                   icon: Mail,
                   label: "Email",
@@ -168,12 +267,36 @@ export function ContactSection() {
                   />
                 </div>
 
-                <Button type="submit" variant="neon" className="w-full group">
+                {status !== "idle" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex items-center gap-2 rounded-lg p-3 ${
+                      status === "success"
+                        ? "bg-green-500/10 text-green-400"
+                        : "bg-red-500/10 text-red-400"
+                    }`}
+                  >
+                    {status === "success" ? (
+                      <CheckCircle size={18} />
+                    ) : (
+                      <AlertCircle size={18} />
+                    )}
+                    <span className="text-sm">{statusMessage}</span>
+                  </motion.div>
+                )}
+
+                <Button
+                  type="submit"
+                  variant="neon"
+                  className="w-full group"
+                  disabled={isLoading}
+                >
                   <span className="flex items-center justify-center gap-2">
-                    Send Message
+                    {isLoading ? "Sending..." : "Send Message"}
                     <Send
                       size={18}
-                      className="transition-transform group-hover:translate-x-1"
+                      className={`transition-transform ${isLoading ? "animate-pulse" : "group-hover:translate-x-1"}`}
                     />
                   </span>
                 </Button>

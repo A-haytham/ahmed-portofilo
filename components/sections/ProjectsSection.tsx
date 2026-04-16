@@ -18,6 +18,7 @@ const projects = [
     category: ["Featured"],
     image: "erp enterprise management system",
     liveUrl: "https://4-s-sigma.vercel.app/",
+    githubUrl: "https://github.com/A-haytham/4s-erp-platform",
   },
   {
     id: 1,
@@ -27,6 +28,7 @@ const projects = [
     tags: ["React.js", "Axios", "Formik", "Google Maps API"],
     category: ["React", "APIs"],
     image: "medical transportation healthcare",
+    githubUrl: "https://github.com/A-haytham/medicurb",
   },
   {
     id: 2,
@@ -36,33 +38,7 @@ const projects = [
     tags: ["React.js", "React Query", "Context API", "Bootstrap"],
     category: ["React", "Full-Stack"],
     image: "ecommerce shopping platform",
-  },
-  {
-    id: 3,
-    title: "Admin News",
-    description:
-      "Admin dashboard for managing news articles with create, edit, and delete functionality. Streamlined content management workflow for efficient article handling.",
-    tags: ["React.js", "Firebase", "Bootstrap", "Admin Panel"],
-    category: ["React", "Dashboard"],
-    image: "admin news management system",
-  },
-  {
-    id: 4,
-    title: "Yummy",
-    description:
-      "Recipe platform where users can explore various recipes, sort by category, and access step-by-step cooking instructions with accompanying video tutorials.",
-    tags: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    category: ["Frontend", "UI"],
-    image: "recipe cooking platform",
-  },
-  {
-    id: 5,
-    title: "Weather",
-    description:
-      "Weather forecasting web app showing current conditions and multi-day forecasts. Demonstrates API integration and responsive UI design with real-time data.",
-    tags: ["HTML5", "CSS3", "JavaScript", "API"],
-    category: ["Frontend", "APIs"],
-    image: "weather forecast app",
+    githubUrl: "https://github.com/A-haytham/ecommerce",
   },
 ];
 
@@ -158,24 +134,29 @@ export function ProjectsSection() {
                 </div>
 
                 <div className="flex gap-3">
+                  {project.liveUrl && (
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#0ea5e9] px-4 py-2 text-white transition-colors hover:bg-[#0284c7]"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </motion.a>
+                  )}
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href={project.liveUrl || "#"}
+                    href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#0ea5e9] px-4 py-2 text-white transition-colors hover:bg-[#0284c7]"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </motion.a>
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="#"
-                    className="flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-white transition-colors hover:bg-white/20"
+                    className={`flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-white transition-colors hover:bg-white/20 ${project.liveUrl ? "" : "flex-1"}`}
                   >
                     <Github size={16} />
+                    GitHub
                   </motion.a>
                 </div>
               </GlassCard>
