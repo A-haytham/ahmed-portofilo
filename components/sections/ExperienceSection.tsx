@@ -50,7 +50,7 @@ const experiences = [
 export function ExperienceSection() {
   return (
     <section id="experience" className="relative px-6 py-24">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-7xl">
         <SectionHeader
           title="Experience"
           subtitle="My professional journey in frontend development"
@@ -66,7 +66,7 @@ export function ExperienceSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative mb-12 md:mb-16 ${
+              className={`group relative mb-12 md:mb-16 ${
                 index % 2 === 0
                   ? "md:pr-[50%] md:text-right"
                   : "md:ml-auto md:pl-[50%]"
@@ -75,9 +75,10 @@ export function ExperienceSection() {
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
+                whileHover={{ scale: 1.5 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 + 0.3, duration: 0.3 }}
-                className="absolute left-0 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-[#0a0a14] bg-gradient-to-br from-[#0ea5e9] to-[#a855f7] md:left-1/2"
+                className="absolute left-0 z-10 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-[#0a0a14] bg-gradient-to-br from-[#38bdf8] to-[#c084fc] shadow-lg shadow-[#0ea5e9]/0 transition-all duration-300 group-hover:scale-150 group-hover:shadow-xl group-hover:shadow-[#0ea5e9]/80 md:left-1/2"
               />
 
               <div
@@ -97,14 +98,16 @@ export function ExperienceSection() {
                       <Briefcase size={20} className="text-[#0ea5e9]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">
+                      <h3 className="text-xl  font-bold text-white">
                         {exp.title}
                       </h3>
-                      <p className="text-gray-400">{exp.company}</p>
+                      <p className="text-gray-400 ">{exp.company}</p>
                     </div>
                   </div>
 
-                  <p className="mb-4 text-gray-300">{exp.description}</p>
+                  <p className="mb-4 text-left text-gray-300">
+                    {exp.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill) => (

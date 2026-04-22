@@ -59,21 +59,33 @@ export function AboutSection() {
                 scalable, real-world products.
               </p>
 
-              <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-center">
-                  <Code2 className="mx-auto mb-2 h-8 w-8 text-[#0ea5e9]" />
-                  <div className="text-2xl font-bold text-white">3+</div>
-                  <div className="text-sm text-gray-400">Years Exp</div>
+                  <Code2 className="mx-auto mb-2 h-6 w-6 text-[#0ea5e9] sm:h-8 sm:w-8" />
+                  <div className="text-xl font-bold text-white sm:text-2xl">
+                    3+
+                  </div>
+                  <div className="text-xs text-gray-400 sm:text-sm">
+                    Years Exp
+                  </div>
                 </div>
                 <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-center">
-                  <Rocket className="mx-auto mb-2 h-8 w-8 text-[#a855f7]" />
-                  <div className="text-2xl font-bold text-white">50+</div>
-                  <div className="text-sm text-gray-400">Projects</div>
+                  <Rocket className="mx-auto mb-2 h-6 w-6 text-[#a855f7] sm:h-8 sm:w-8" />
+                  <div className="text-xl font-bold text-white sm:text-2xl">
+                    50+
+                  </div>
+                  <div className="text-xs text-gray-400 sm:text-sm">
+                    Projects
+                  </div>
                 </div>
                 <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-center">
-                  <Zap className="mx-auto mb-2 h-8 w-8 text-[#0ea5e9]" />
-                  <div className="text-2xl font-bold text-white">100%</div>
-                  <div className="text-sm text-gray-400">Committed</div>
+                  <Zap className="mx-auto mb-2 h-6 w-6 text-[#0ea5e9] sm:h-8 sm:w-8" />
+                  <div className="text-xl font-bold text-white sm:text-2xl">
+                    100%
+                  </div>
+                  <div className="text-xs text-gray-400 sm:text-sm">
+                    Committed
+                  </div>
                 </div>
               </div>
             </div>

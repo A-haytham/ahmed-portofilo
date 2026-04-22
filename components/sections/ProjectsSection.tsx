@@ -15,7 +15,7 @@ const projects = [
     description:
       "Enterprise ERP solution with real-time dashboards, inventory management, and integrated modules for finance, HR, and sales operations",
     tags: ["Next.js", "TypeScript", "ERP", "Dashboard"],
-    category: ["Featured"],
+    category: ["Featured", "next.js"],
     image: "erp enterprise management system",
     liveUrl: "https://4-s-sigma.vercel.app/",
     githubUrl: "https://github.com/A-haytham/4s-erp-platform",
@@ -28,6 +28,7 @@ const projects = [
     tags: ["React.js", "Axios", "Formik", "Google Maps API"],
     category: ["React", "APIs"],
     image: "medical transportation healthcare",
+    liveUrl: "https://medical-project-two.vercel.app/",
     githubUrl: "https://github.com/A-haytham/medical-project",
   },
   {
@@ -38,19 +39,12 @@ const projects = [
     tags: ["React.js", "React Query", "Context API", "Bootstrap"],
     category: ["React", "Full-Stack"],
     image: "ecommerce shopping platform",
+    liveUrl: "https://shop-mocha-eight.vercel.app/",
     githubUrl: "https://github.com/A-haytham/Fresh-shop",
   },
 ];
 
-const filters = [
-  "All",
-  "Featured",
-  "React",
-  "Frontend",
-  "Dashboard",
-  "APIs",
-  "Full-Stack",
-];
+const filters = ["All", "next.js", "React", "APIs"];
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
