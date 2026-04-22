@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Download, Mail } from "lucide-react";
 import svgPaths from "@/imports/svg-5n99jadf7x";
 import { ImageWithFallback } from "../figma/ImageWithFallback";
@@ -64,7 +64,8 @@ function LogosFigma() {
 }
 
 export function HeroSection() {
-  const enableIdleMotion = false;
+  const shouldReduceMotion = useReducedMotion();
+  const enableIdleMotion = !shouldReduceMotion;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -92,7 +93,9 @@ export function HeroSection() {
       >
         <motion.div
           animate={
-            enableIdleMotion ? { y: [0, -20, 0], rotate: [0, -2, 0] } : undefined
+            enableIdleMotion
+              ? { y: [0, -20, 0], rotate: [0, -2, 0] }
+              : undefined
           }
           transition={
             enableIdleMotion
@@ -404,20 +407,22 @@ export function HeroSection() {
                       }
                     : undefined
                 }
-                className="absolute bottom-0 left-1/2 h-[290px] w-[220px] -translate-x-1/2 sm:h-[330px] sm:w-[250px] md:h-[350px] md:w-[310px]"
+                className="absolute bottom-0 left-1/2 h-[261px] w-[220px] -translate-x-1/2 sm:h-[297px] sm:w-[250px] md:h-[225px] md:w-[310px]"
               >
                 <ImageWithFallback
                   src={imgCharacterWithRose}
                   alt="3D Character"
-                  sizes="(min-width: 700px) 220px, 250px"
-                  quality={55}
+                  sizes="(min-width: 690px) 220px, 250px"
+                  quality={100}
                   className="h-[90%] w-full object-contain"
                 />
               </motion.div>
 
               <motion.div
                 animate={
-                  enableIdleMotion ? { rotate: [8, 12, 8], y: [0, -8, 0] } : undefined
+                  enableIdleMotion
+                    ? { rotate: [8, 12, 8], y: [0, -8, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -431,7 +436,9 @@ export function HeroSection() {
 
               <motion.div
                 animate={
-                  enableIdleMotion ? { rotate: [14, 18, 14], y: [0, -12, 0] } : undefined
+                  enableIdleMotion
+                    ? { rotate: [14, 18, 14], y: [0, -12, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -450,7 +457,9 @@ export function HeroSection() {
 
               <motion.div
                 animate={
-                  enableIdleMotion ? { y: [0, -10, 0], rotate: [0, 5, 0] } : undefined
+                  enableIdleMotion
+                    ? { y: [0, -10, 0], rotate: [0, 5, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -469,7 +478,9 @@ export function HeroSection() {
 
               <motion.div
                 animate={
-                  enableIdleMotion ? { rotate: [-7, -11, -7], y: [0, -8, 0] } : undefined
+                  enableIdleMotion
+                    ? { rotate: [-7, -11, -7], y: [0, -8, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -527,7 +538,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.6 }}
-              className="mt-6 hidden max-w-[360px] rounded-3xl border border-white/40 bg-white/10 p-4 text-left backdrop-blur-md lg:block lg:mt-8"
+              className="mt-6 hidden max-w-90 rounded-3xl border border-white/40 bg-white/10 p-4 text-left backdrop-blur-md lg:block lg:mt-8"
             >
               <p className="-mt-1 text-6xl font-light leading-none text-white">
                 &quot;
@@ -540,7 +551,7 @@ export function HeroSection() {
               </p>
 
               <div className="mt-4 flex items-center gap-3">
-                <div className="relative h-[42px] w-[42px] overflow-hidden rounded-full bg-[#0ea5e9]">
+                <div className="relative h-10.5 w-10.5 overflow-hidden rounded-full bg-[#0ea5e9]">
                   <ImageWithFallback
                     src={imgUnsplashHaNi1RsZ6Nc}
                     alt="Client"
@@ -560,12 +571,12 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          <div className="relative hidden h-[520px] lg:block xl:h-[600px]">
+          <div className="relative hidden h-130 lg:block xl:h-150">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="absolute -bottom-6 right-[-18px] h-[560px] w-[420px] xl:-bottom-8 xl:right-[-28px] xl:h-[580px] xl:w-[520px]"
+              className="absolute -bottom-6 -right-4.5 h-126 w-105 xl:-bottom-8 xl:right-[-28px] xl:h-[522px] xl:w-[520px]"
             >
               <ImageWithFallback
                 src={imgCharacterWithRose}
@@ -573,7 +584,6 @@ export function HeroSection() {
                 priority
                 fetchPriority="high"
                 sizes="(min-width: 1280px) 550px, 420px"
-                quality={55}
                 className="h-full w-full object-cover"
               />
             </motion.div>
@@ -586,7 +596,9 @@ export function HeroSection() {
             >
               <motion.div
                 animate={
-                  enableIdleMotion ? { rotate: [8, 12, 8], y: [0, -10, 0] } : undefined
+                  enableIdleMotion
+                    ? { rotate: [8, 12, 8], y: [0, -10, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -606,7 +618,9 @@ export function HeroSection() {
             >
               <motion.div
                 animate={
-                  enableIdleMotion ? { rotate: [14, 18, 14], y: [0, -15, 0] } : undefined
+                  enableIdleMotion
+                    ? { rotate: [14, 18, 14], y: [0, -15, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -631,7 +645,9 @@ export function HeroSection() {
             >
               <motion.div
                 animate={
-                  enableIdleMotion ? { y: [0, -12, 0], rotate: [0, 5, 0] } : undefined
+                  enableIdleMotion
+                    ? { y: [0, -12, 0], rotate: [0, 5, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
@@ -656,7 +672,9 @@ export function HeroSection() {
             >
               <motion.div
                 animate={
-                  enableIdleMotion ? { rotate: [-7, -11, -7], y: [0, -8, 0] } : undefined
+                  enableIdleMotion
+                    ? { rotate: [-7, -11, -7], y: [0, -8, 0] }
+                    : undefined
                 }
                 transition={
                   enableIdleMotion
