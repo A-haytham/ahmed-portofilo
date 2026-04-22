@@ -209,7 +209,7 @@ export function AboutSection() {
                   <span className="text-[#0ea5e9]">Advanced</span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-white/10">
-                  <div className="h-full w-full bg-gradient-to-r from-[#0ea5e9] to-[#a855f7]" />
+                  <div className="h-full w-[80%] bg-gradient-to-r from-[#0ea5e9] to-[#a855f7]" />
                 </div>
               </div>
             </div>
