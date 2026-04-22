@@ -8,7 +8,7 @@ import { ImageWithFallback } from "../figma/ImageWithFallback";
 const imgAdobeExpressFile66 =
   "/images/a16ba1c9c2fdae9090206d1d706d9e8e5fe1f49f.png";
 const imgCharacterWithRose =
-  "/images/ChatGPT%20Image%20Feb%2021%2C%202026%2C%2006_31_34%20AM.png";
+  "/images/ChatGPT%20Image%20Feb%2021%2C%202026%2C%2006_31_34%20AM.png?v=20260416-130607";
 const imgUnsplashHaNi1RsZ6Nc =
   "https://source.unsplash.com/300x300/?portrait,professional,woman";
 
@@ -64,23 +64,41 @@ function LogosFigma() {
 }
 
 export function HeroSection() {
+  const enableIdleMotion = false;
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const navItems = [
+    { sectionId: "home", label: "Home", isActive: true },
+    { sectionId: "skills", label: "Skills" },
+    { sectionId: "experience", label: "Experience" },
+    { sectionId: "contact", label: "Connect" },
+  ];
+
   return (
-    <section id="home" className="relative h-screen overflow-hidden bg-black">
+    <section
+      id="home"
+      className="relative h-screen overflow-hidden bg-black lg:h-screen lg:overflow-hidden"
+    >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_52%,rgba(168,85,247,0.32)_0%,rgba(14,165,233,0.28)_34%,rgba(0,0,0,0.95)_62%)]" />
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 0.6, x: 0 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="pointer-events-none absolute -left-24 top-[62%] h-[320px] w-[220px] md:-left-20 md:h-[420px] md:w-[280px]"
+        className="pointer-events-none absolute -left-24 top-[62%] h-[320px] w-[220px] md:-left-20 md:h-[420px] md:w-[280px] lg:hidden"
       >
         <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, -2, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          animate={
+            enableIdleMotion ? { y: [0, -20, 0], rotate: [0, -2, 0] } : undefined
+          }
+          transition={
+            enableIdleMotion
+              ? { duration: 6, repeat: Infinity, ease: "easeInOut" }
+              : undefined
+          }
           className="h-full w-full opacity-70"
           style={{ filter: "hue-rotate(200deg) saturate(1.5)" }}
         >
@@ -88,6 +106,55 @@ export function HeroSection() {
             src={imgAdobeExpressFile66}
             alt=""
             sizes="(min-width: 768px) 280px, 220px"
+            quality={60}
+            className="h-full w-full object-cover"
+          />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 0.6, x: 0 }}
+        transition={{ delay: 0.5, duration: 1 }}
+        className="pointer-events-none absolute hidden lg:-left-20 lg:top-[62%] lg:block lg:h-[420px] lg:w-[280px]"
+      >
+        <div
+          className="h-full w-full opacity-70"
+          style={{ filter: "hue-rotate(200deg) saturate(1.5)" }}
+        >
+          <ImageWithFallback
+            src={imgAdobeExpressFile66}
+            alt=""
+            sizes="280px"
+            quality={60}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 0.55, x: 0 }}
+        transition={{ delay: 0.6, duration: 1 }}
+        className="pointer-events-none absolute -right-16 -top-12 hidden h-[300px] w-[200px] rotate-[185deg] md:block md:h-[370px] md:w-[230px] lg:hidden"
+      >
+        <motion.div
+          animate={
+            enableIdleMotion ? { y: [0, 12, 0], rotate: [0, 2, 0] } : undefined
+          }
+          transition={
+            enableIdleMotion
+              ? { duration: 6, repeat: Infinity, ease: "easeInOut" }
+              : undefined
+          }
+          className="h-full w-full opacity-75"
+          style={{ filter: "hue-rotate(200deg) saturate(1.5)" }}
+        >
+          <ImageWithFallback
+            src={imgAdobeExpressFile66}
+            alt=""
+            sizes="(min-width: 768px) 230px, 200px"
+            quality={60}
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -97,38 +164,23 @@ export function HeroSection() {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 0.55, x: 0 }}
         transition={{ delay: 0.6, duration: 1 }}
-        className="pointer-events-none absolute -right-16 -top-12 hidden h-[300px] w-[200px] rotate-[185deg] md:block md:h-[370px] md:w-[230px] lg:-right-20 lg:-top-14"
+        className="pointer-events-none absolute hidden rotate-[185deg] lg:-right-20 lg:-top-14 lg:block lg:h-[370px] lg:w-[230px]"
       >
-        <motion.div
-          animate={{ y: [0, 12, 0], rotate: [0, 2, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        <div
           className="h-full w-full opacity-75"
           style={{ filter: "hue-rotate(200deg) saturate(1.5)" }}
         >
           <ImageWithFallback
             src={imgAdobeExpressFile66}
             alt=""
-            sizes="(min-width: 768px) 230px, 200px"
+            sizes="230px"
+            quality={60}
             className="h-full w-full object-cover"
           />
-        </motion.div>
+        </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 1 }}
-        className="pointer-events-none absolute bottom-0 right-0 z-20 h-[320px] w-[220px] opacity-70 hidden lg:block    lg:hidden"
-      >
-        <ImageWithFallback
-          src={imgCharacterWithRose}
-          alt=""
-          sizes="(min-width: 768px) 360px, 220px"
-          className="h-full w-full object-contain"
-        />
-      </motion.div>
-
-      <div className="absolute left-[66%] top-[50%] h-[980px] w-[980px] -translate-x-1/2 -translate-y-1/2 md:h-[1280px] md:w-[1280px]">
+      <div className="absolute left-[52%] top-[30%] h-[780px] w-[780px] -translate-x-1/2 -translate-y-1/2 sm:left-[58%] sm:top-[32%] sm:h-[920px] sm:w-[920px] md:left-[60%] md:top-[34%] md:h-[1080px] md:w-[1080px] lg:left-[66%] lg:top-[50%] lg:h-[1280px] lg:w-[1280px]">
         <div className="absolute inset-0 opacity-60">
           <svg className="size-full" fill="none" viewBox="0 0 2964 2964">
             <g filter="url(#filter0_f_hero)" opacity="0.7">
@@ -198,12 +250,12 @@ export function HeroSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1380px] flex-col px-2 py-2 lg:px-10">
+      <div className="relative z-10 mx-auto flex h-full min-h-0 w-full max-w-[1380px] flex-col px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 lg:h-full lg:px-10 lg:py-2">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 flex items-center justify-between  lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-8"
+          className="mb-3 flex items-center justify-between gap-4 sm:mb-4 md:mb-5 lg:mb-6 lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-8"
         >
           <div className="text-2xl font-semibold text-white md:text-3xl">
             ahmed.
@@ -211,30 +263,19 @@ export function HeroSection() {
 
           <div className="hidden justify-center lg:flex">
             <div className="flex w-full max-w-[360px] items-center justify-center gap-7 rounded-full border border-white/30 px-8 py-2.5 backdrop-blur-sm">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="text-base font-normal text-[#0ea5e9]"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="text-base font-normal text-white/70 transition-colors hover:text-white"
-              >
-                Skills
-              </button>
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="text-base font-normal text-white/70 transition-colors hover:text-white"
-              >
-                Experience
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-base font-normal text-white/70 transition-colors hover:text-white"
-              >
-                Connect
-              </button>
+              {navItems.map((item) => (
+                <button
+                  key={item.sectionId}
+                  onClick={() => scrollToSection(item.sectionId)}
+                  className={
+                    item.isActive
+                      ? "text-base font-normal text-[#0ea5e9]"
+                      : "text-base font-normal text-white/70 transition-colors hover:text-white"
+                  }
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -249,11 +290,36 @@ export function HeroSection() {
             <span className="text-base font-normal">Download Resume</span>
           </motion.a>
 
-          <button className="text-base text-white lg:hidden">Menu</button>
+          <motion.a
+            href="/cv/Ahmed-Haytham-Ahmed-Front-End-Developer.pdf"
+            download
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Download Resume"
+            className="flex size-11 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-all hover:border-[#0ea5e9] hover:bg-[#0ea5e9]/10 lg:hidden"
+          >
+            <Download size={18} />
+          </motion.a>
         </motion.nav>
 
-        <div className="grid flex-1 items-center  lg:grid-cols-[1.05fr_0.95fr] lg:gap-2 ">
-          <div className="space-y-4 md:space-y-5 lg:max-w-[620px] lg:pt-2">
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-2 sm:mb-5 md:mb-6 lg:hidden">
+          {navItems.map((item) => (
+            <button
+              key={item.sectionId}
+              onClick={() => scrollToSection(item.sectionId)}
+              className={
+                item.isActive
+                  ? "rounded-full border border-[#0ea5e9]/40 bg-[#0ea5e9]/15 px-4 py-2 text-sm text-[#38bdf8]"
+                  : "rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/75 transition-colors hover:border-white/30 hover:text-white"
+              }
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid min-h-0 flex-1 content-center items-center gap-5 pb-0 sm:gap-6 md:grid-cols-1 md:gap-8 md:pb-0 lg:grid-cols-[1.05fr_0.95fr] lg:gap-2 lg:pb-0">
+          <div className="space-y-4 text-center md:mx-auto md:max-w-xl md:space-y-5 lg:mx-0 lg:max-w-[620px] lg:space-y-6 lg:pt-2 lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -269,7 +335,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="bg-gradient-to-r from-[#0ea5e9] to-[#a855f7] bg-clip-text text-3xl font-semibold text-transparent md:text-5xl lg:text-6xl"
+              className="lg:m-0 bg-gradient-to-r from-[#0ea5e9] to-[#a855f7] bg-clip-text text-6xl font-bold leading-[0.95] text-transparent md:text-[52px] lg:text-6xl lg:leading-none"
             >
               Front-End
               <br />
@@ -280,7 +346,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="max-w-md text-sm font-light text-white md:text-base"
+              className="mx-auto max-w-md text-sm leading-relaxed font-light text-white md:max-w-lg md:text-base lg:mx-0"
             >
               Hands-on experience building modern, responsive web applications
               using React and Next.js. Passionate about clean code, performance
@@ -291,7 +357,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-              className="flex items-center gap-3 pt-2 md:gap-4"
+              className="flex flex-wrap items-center justify-center gap-3 pt-4 md:gap-5 md:pt-5 lg:justify-start"
             >
               <motion.button
                 whileHover={{
@@ -300,7 +366,7 @@ export function HeroSection() {
                 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollToSection("contact")}
-                className="rounded-full bg-[#0ea5e9] px-6 py-3 text-lg font-light text-white shadow-lg shadow-[#0ea5e9]/30 transition-all md:px-8 md:text-xl"
+                className="rounded-full bg-[#0ea5e9] px-6 py-3 text-lg font-light m-0 text-white shadow-lg shadow-[#0ea5e9]/30 transition-all md:px-8 md:text-xl"
               >
                 Hire me
               </motion.button>
@@ -315,15 +381,153 @@ export function HeroSection() {
               </motion.button>
             </motion.div>
 
-            <div className="pt-2">
-              <div className="h-px w-full max-w-[520px] bg-white/30" />
+            <div className="hidden pt-2 lg:block">
+              <div className="mx-auto h-px w-full max-w-[520px] bg-white/30 lg:mx-0" />
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.7 }}
+              className="relative mx-auto mt-8 hidden h-[320px] w-full max-w-[340px] sm:h-[360px] sm:max-w-[380px] md:mt-10 md:h-[440px] md:max-w-[480px] lg:hidden"
+            >
+              <div className="absolute left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.26),rgba(14,165,233,0)_70%)] sm:h-[280px] sm:w-[280px] md:h-[320px] md:w-[320px]" />
+              <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[340px] sm:w-[340px] md:h-[400px] md:w-[400px]" />
+
+              <motion.div
+                animate={enableIdleMotion ? { y: [0, -10, 0] } : undefined}
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 5,
+                        ease: "easeInOut",
+                      }
+                    : undefined
+                }
+                className="absolute bottom-0 left-1/2 h-[290px] w-[220px] -translate-x-1/2 sm:h-[330px] sm:w-[250px] md:h-[350px] md:w-[310px]"
+              >
+                <ImageWithFallback
+                  src={imgCharacterWithRose}
+                  alt="3D Character"
+                  sizes="(min-width: 700px) 220px, 250px"
+                  quality={55}
+                  className="h-[90%] w-full object-contain"
+                />
+              </motion.div>
+
+              <motion.div
+                animate={
+                  enableIdleMotion ? { rotate: [8, 12, 8], y: [0, -8, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    : undefined
+                }
+                className="absolute left-[2%] top-[50%] z-10 hidden md:left-[8%] lg:block"
+              >
+                <SkillIconsCss />
+              </motion.div>
+
+              <motion.div
+                animate={
+                  enableIdleMotion ? { rotate: [14, 18, 14], y: [0, -12, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.5,
+                      }
+                    : undefined
+                }
+                className="absolute left-[18%] top-[6%] z-10 hidden md:left-[24%] md:top-[12%] lg:block"
+              >
+                <VscodeIconsFileTypeHtml />
+              </motion.div>
+
+              <motion.div
+                animate={
+                  enableIdleMotion ? { y: [0, -10, 0], rotate: [0, 5, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 4.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1,
+                      }
+                    : undefined
+                }
+                className="absolute left-[10%] top-[74%] z-10 hidden md:left-[14%] lg:block"
+              >
+                <SkillIconsNodejsDark />
+              </motion.div>
+
+              <motion.div
+                animate={
+                  enableIdleMotion ? { rotate: [-7, -11, -7], y: [0, -8, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 4.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1.5,
+                      }
+                    : undefined
+                }
+                className="absolute right-[6%] top-[24%] z-10 hidden md:right-[10%] lg:block"
+              >
+                <LogosFigma />
+              </motion.div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.6 }}
-              className="mt-6 hidden max-w-[360px] rounded-3xl border border-white/40 bg-white/10 p-4 backdrop-blur-md md:block lg:mt-8"
+              className="mx-auto mt-6 hidden w-full max-w-[420px] rounded-3xl border border-white/40 bg-white/10 p-4 text-left backdrop-blur-md lg:hidden"
+            >
+              <p className="-mt-1 text-6xl font-light leading-none text-white">
+                &quot;
+              </p>
+
+              <p className="-mt-4 text-sm font-normal leading-relaxed text-white">
+                Ahmed&apos;s expertise in React and Next.js helped us build a
+                scalable platform that exceeded our expectations. Highly
+                recommend!
+              </p>
+
+              <div className="mt-4 flex items-center gap-3">
+                <div className="relative h-[42px] w-[42px] overflow-hidden rounded-full bg-[#0ea5e9]">
+                  <ImageWithFallback
+                    src={imgUnsplashHaNi1RsZ6Nc}
+                    alt="Client"
+                    sizes="42px"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-base font-medium text-white">
+                    Sarah Mitchell
+                  </p>
+                  <p className="text-xs font-medium text-white/60">
+                    Product Manager
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.6 }}
+              className="mt-6 hidden max-w-[360px] rounded-3xl border border-white/40 bg-white/10 p-4 text-left backdrop-blur-md lg:block lg:mt-8"
             >
               <p className="-mt-1 text-6xl font-light leading-none text-white">
                 &quot;
@@ -369,6 +573,7 @@ export function HeroSection() {
                 priority
                 fetchPriority="high"
                 sizes="(min-width: 1280px) 550px, 420px"
+                quality={55}
                 className="h-full w-full object-cover"
               />
             </motion.div>
@@ -380,12 +585,14 @@ export function HeroSection() {
               className="absolute left-[4%] top-[52%] z-10 xl:left-[13%]"
             >
               <motion.div
-                animate={{ rotate: [8, 12, 8], y: [0, -10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                animate={
+                  enableIdleMotion ? { rotate: [8, 12, 8], y: [0, -10, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    : undefined
+                }
               >
                 <SkillIconsCss />
               </motion.div>
@@ -398,13 +605,19 @@ export function HeroSection() {
               className="absolute left-[34%] top-[16%] z-10 xl:left-[25%] xl:top-[36%]"
             >
               <motion.div
-                animate={{ rotate: [14, 18, 14], y: [0, -15, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
+                animate={
+                  enableIdleMotion ? { rotate: [14, 18, 14], y: [0, -15, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.5,
+                      }
+                    : undefined
+                }
               >
                 <VscodeIconsFileTypeHtml />
               </motion.div>
@@ -417,13 +630,19 @@ export function HeroSection() {
               className="absolute left-[9%] top-[74%] z-10"
             >
               <motion.div
-                animate={{ y: [0, -12, 0], rotate: [0, 5, 0] }}
-                transition={{
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
+                animate={
+                  enableIdleMotion ? { y: [0, -12, 0], rotate: [0, 5, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 4.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1,
+                      }
+                    : undefined
+                }
               >
                 <SkillIconsNodejsDark />
               </motion.div>
@@ -436,13 +655,19 @@ export function HeroSection() {
               className="absolute right-[8%] top-[33%] z-10 xl:right-[5%]"
             >
               <motion.div
-                animate={{ rotate: [-7, -11, -7], y: [0, -8, 0] }}
-                transition={{
-                  duration: 4.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.5,
-                }}
+                animate={
+                  enableIdleMotion ? { rotate: [-7, -11, -7], y: [0, -8, 0] } : undefined
+                }
+                transition={
+                  enableIdleMotion
+                    ? {
+                        duration: 4.2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1.5,
+                      }
+                    : undefined
+                }
               >
                 <LogosFigma />
               </motion.div>

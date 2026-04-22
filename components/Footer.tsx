@@ -19,10 +19,7 @@ export function Footer() {
 
           <div className="flex items-center gap-2 text-gray-400">
             <span>Built with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
+            <motion.div>
               <Heart size={16} className="fill-[#0ea5e9] text-[#0ea5e9]" />
             </motion.div>
             <span>using React &amp; Next.js</span>

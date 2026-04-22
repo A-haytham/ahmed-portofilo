@@ -28,17 +28,17 @@ const projects = [
     tags: ["React.js", "Axios", "Formik", "Google Maps API"],
     category: ["React", "APIs"],
     image: "medical transportation healthcare",
-    githubUrl: "https://github.com/A-haytham/medicurb",
+    githubUrl: "https://github.com/A-haytham/medical-project",
   },
   {
     id: 2,
-    title: "Ecommerce",
+    title: "Fresh Cart",
     description:
       "Full-featured e-commerce web application with seamless shopping experience. Includes product listing, cart system, and order management with optimized data fetching.",
     tags: ["React.js", "React Query", "Context API", "Bootstrap"],
     category: ["React", "Full-Stack"],
     image: "ecommerce shopping platform",
-    githubUrl: "https://github.com/A-haytham/ecommerce",
+    githubUrl: "https://github.com/A-haytham/Fresh-shop",
   },
 ];
 

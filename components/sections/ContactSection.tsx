@@ -28,8 +28,16 @@ export function ContactSection() {
 
   useEffect(() => {
     // Initialize EmailJS with your public key from environment
-    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
-      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    if (publicKey && publicKey !== "your_public_key_here") {
+      try {
+        emailjs.init(publicKey);
+        console.log("✅ EmailJS initialized successfully");
+      } catch (initError) {
+        console.error("❌ EmailJS initialization failed:", initError);
+      }
+    } else {
+      console.warn("⚠️ EmailJS public key not configured in .env.local");
     }
   }, []);
 
@@ -80,6 +88,12 @@ export function ContactSection() {
     }
 
     try {
+      console.log("📧 Sending email with:", {
+        serviceId,
+        templateId,
+        name: formData.name,
+      });
+
       const result = await emailjs.send(serviceId, templateId, {
         from_name: formData.name,
         from_email: formData.email,
@@ -87,7 +101,7 @@ export function ContactSection() {
         to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
       });
 
-      console.log("Email sent successfully:", result);
+      console.log("✅ Email sent successfully:", result);
       setStatus("success");
       setStatusMessage(
         "✅ Thanks for your message! I'll get back to you soon.",
@@ -97,9 +111,13 @@ export function ContactSection() {
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
       setStatus("error");
-      const errorMessage =
-        error instanceof Error ? error.message : "Unknown error occurred";
-      console.error("EmailJS error:", errorMessage, error);
+      const errorDetails = {
+        message: error instanceof Error ? error.message : "Unknown error",
+        status: (error as any)?.status || "N/A",
+        text: (error as any)?.text || "N/A",
+        fullError: error,
+      };
+      console.error("❌ EmailJS error details:", errorDetails);
       setStatusMessage(
         "❌ Failed to send. Please email me: ahmedhaytham25320@gmail.com",
       );
@@ -178,7 +196,7 @@ export function ContactSection() {
                 {
                   icon: Linkedin,
                   label: "LinkedIn",
-                  href: "https://linkedin.com/in/ahmedhaytham",
+                  href: "https://www.linkedin.com/in/ahmed-haytham-99438b319/",
                 },
                 {
                   icon: Mail,

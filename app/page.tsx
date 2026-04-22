@@ -29,9 +29,9 @@ const Footer = dynamic(() =>
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#0a0a14] text-white">
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="pulse-orb absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#0ea5e9]/10 blur-[128px]" />
-        <div className="pulse-orb absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-[#a855f7]/10 blur-[128px] [animation-delay:1s]" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="pulse-orb absolute left-1/4 top-0 h-72 w-72 rounded-full bg-[#0ea5e9]/8 blur-[84px] md:h-80 md:w-80" />
+        <div className="pulse-orb absolute bottom-0 right-1/4 h-72 w-72 rounded-full bg-[#a855f7]/8 blur-[84px] [animation-delay:1s] md:h-80 md:w-80" />
       </div>
 
       <div className="relative z-10">
