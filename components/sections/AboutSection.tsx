@@ -28,13 +28,22 @@ const techBadges = [
   "Responsive Design",
 ];
 
+const softSkills = [
+  "Problem Solving",
+  "Communication",
+  "Teamwork",
+  "Attention to Detail",
+  "Adaptability",
+  "Time Management",
+];
+
 export function AboutSection() {
   return (
     <section id="about" className="relative px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           title="About Me"
-          subtitle="Passionate about crafting exceptional digital experiences"
+          subtitle="Building fast, user-focused digital experiences."
         />
 
         <div className="grid items-start gap-12 md:grid-cols-2">
@@ -63,7 +72,7 @@ export function AboutSection() {
                 <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-center">
                   <Code2 className="mx-auto mb-2 h-6 w-6 text-[#0ea5e9] sm:h-8 sm:w-8" />
                   <div className="text-xl font-bold text-white sm:text-2xl">
-                    3+
+                    2+
                   </div>
                   <div className="text-xs text-gray-400 sm:text-sm">
                     Years Exp
@@ -72,7 +81,7 @@ export function AboutSection() {
                 <div className="rounded-lg border border-white/10 bg-white/5 p-4 text-center">
                   <Rocket className="mx-auto mb-2 h-6 w-6 text-[#a855f7] sm:h-8 sm:w-8" />
                   <div className="text-xl font-bold text-white sm:text-2xl">
-                    50+
+                    10+
                   </div>
                   <div className="text-xs text-gray-400 sm:text-sm">
                     Projects
@@ -86,6 +95,42 @@ export function AboutSection() {
                   <div className="text-xs text-gray-400 sm:text-sm">
                     Committed
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
+              <h3 className="mb-6 text-2xl font-bold text-white">Education</h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-white">
+                    Bachelor's Degree in Law
+                  </h4>
+                  <p className="text-sm text-gray-400">
+                    Ain Shams University, Cairo â€¢ 06/2023
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">
+                    Front-End Development Course
+                  </h4>
+                  <p className="text-sm text-gray-400">
+                    Route Academy â€¢ 2024-2025
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">
+                    React & TypeScript Specialization
+                  </h4>
+                  <p className="text-sm text-gray-400">
+                    Muhammad Naga (Codeawy) & Jonas Schmedtmann
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">
+                    UI Design & Figma
+                  </h4>
+                  <p className="text-sm text-gray-400">Ehab Fayez</p>
                 </div>
               </div>
             </div>
@@ -157,6 +202,51 @@ export function AboutSection() {
                 ))}
               </div>
             </div>
+
+            <div className="mt-8 border-t border-white/10 pt-8">
+              <h4 className="mb-4 text-xl font-bold text-white">
+                Soft Skills
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {softSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
+                  >
+                    <Badge variant={index % 2 === 0 ? "purple" : "accent"}>
+                      {skill}
+                    </Badge>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
+              <h3 className="mb-6 text-2xl font-bold text-white">Languages</h3>
+              <div className="space-y-4">
+                <div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="font-semibold text-white">Arabic</span>
+                    <span className="text-[#0ea5e9]">Native</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-full bg-gradient-to-r from-[#0ea5e9] to-[#a855f7]" />
+                  </div>
+                </div>
+                <div>
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="font-semibold text-white">English</span>
+                    <span className="text-[#0ea5e9]">Advanced</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-[80%] bg-gradient-to-r from-[#0ea5e9] to-[#a855f7]" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
 
@@ -165,7 +255,7 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16 grid gap-8 md:grid-cols-2"
+          className="hidden"
         >
           <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0ea5e9]/10 to-[#a855f7]/10 p-8 backdrop-blur-sm">
             <h3 className="mb-6 text-2xl font-bold text-white">Education</h3>

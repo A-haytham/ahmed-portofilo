@@ -101,7 +101,7 @@ export function ExperienceSection() {
                       <h3 className="text-xl  font-bold text-white">
                         {exp.title}
                       </h3>
-                      <p className="text-gray-400 ">{exp.company}</p>
+                      <p className="text-gray-400 text-left ">{exp.company}</p>
                     </div>
                   </div>
 

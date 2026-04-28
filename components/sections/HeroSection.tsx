@@ -216,7 +216,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute right-[-9%] top-[44%] hidden h-[560px] w-[560px] lg:block xl:right-[2%] xl:h-[620px] xl:w-[620px]">
+      <div className="pointer-events-none absolute right-[-9%] top-[40%] hidden h-[560px] w-[560px] lg:block xl:right-[2%] xl:h-[620px] xl:w-[620px]">
         <svg className="size-full" fill="none" viewBox="0 0 786 786">
           <circle
             cx="393"
@@ -228,7 +228,7 @@ export function HeroSection() {
           />
         </svg>
       </div>
-      <div className="pointer-events-none absolute right-[-1%] top-[53%] hidden h-[420px] w-[420px] lg:block xl:right-[7%] xl:h-[460px] xl:w-[460px]">
+      <div className="pointer-events-none absolute right-[-1%] top-[50%] hidden h-[420px] w-[420px] lg:block xl:right-[8%] xl:h-[460px] xl:w-[460px]">
         <svg className="size-full" fill="none" viewBox="0 0 594 594">
           <circle
             cx="297"
@@ -240,7 +240,7 @@ export function HeroSection() {
           />
         </svg>
       </div>
-      <div className="pointer-events-none absolute right-[7%] top-[60%] hidden h-[300px] w-[300px] lg:block xl:right-[11%] xl:h-[330px] xl:w-[330px]">
+      <div className="pointer-events-none absolute right-[7%] top-[60%] hidden h-[300px] w-[300px] lg:block xl:right-[13%] xl:h-[330px] xl:w-[330px]">
         <svg className="size-full" fill="none" viewBox="0 0 440 440">
           <circle
             cx="220"
@@ -351,9 +351,7 @@ export function HeroSection() {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="mx-auto max-w-md text-sm leading-relaxed font-light text-white md:max-w-lg md:text-base lg:mx-0"
             >
-              Hands-on experience building modern, responsive web applications
-              using React and Next.js. Passionate about clean code, performance
-              optimization, and delivering user-focused interfaces.
+            Experienced in building modern, responsive web applications using React and Next.js. Focused on writing clean, maintainable code, optimizing performance, and creating interactive user-focused interfaces.
             </motion.p>
 
             <motion.div
@@ -576,7 +574,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="absolute -bottom-6 -right-4.5 h-126 w-105 xl:-bottom-8 xl:right-[-28px] xl:h-[522px] xl:w-[520px]"
+              className="absolute -bottom-6 -right-4.5 h-126 w-105 xl:-bottom-8 lg:right-[-30px] lg:w-[430px] lg:h-[422px] xl:right-[-28px] xl:h-[522px] xl:w-[520px]"
             >
               <ImageWithFallback
                 src={imgCharacterWithRose}
@@ -592,7 +590,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: 8 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="absolute left-[4%] top-[52%] z-10 xl:left-[13%]"
+              className="absolute left-[4%] top-[54%] z-10 xl:left-[11%]"
             >
               <motion.div
                 animate={
@@ -614,7 +612,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.5, rotate: 15 }}
               animate={{ opacity: 1, scale: 1, rotate: 14 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="absolute left-[34%] top-[16%] z-10 xl:left-[25%] xl:top-[36%]"
+              className="absolute lg:left-[24%] lg:top-[40%] z-10 xl:left-[25%] xl:top-[40%]"
             >
               <motion.div
                 animate={
@@ -641,7 +639,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.2, duration: 0.6 }}
-              className="absolute left-[9%] top-[74%] z-10"
+              className="absolute lg:left-[5%] xl:left-[7%] lg:top-[76%] z-10"
             >
               <motion.div
                 animate={
@@ -668,7 +666,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.5, rotate: -8 }}
               animate={{ opacity: 1, scale: 1, rotate: -7 }}
               transition={{ delay: 1.4, duration: 0.6 }}
-              className="absolute right-[8%] top-[33%] z-10 xl:right-[5%]"
+              className="absolute right-[8%] top-[40%] z-10 xl:right-[7%]"
             >
               <motion.div
                 animate={
